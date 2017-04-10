@@ -6,14 +6,14 @@ import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
 
-import com.artofsolving.jodconverter.DocumentConverter;
+/*import com.artofsolving.jodconverter.DocumentConverter;
 import com.artofsolving.jodconverter.openoffice.connection.OpenOfficeConnection;
 import com.artofsolving.jodconverter.openoffice.connection.SocketOpenOfficeConnection;
-import com.artofsolving.jodconverter.openoffice.converter.OpenOfficeDocumentConverter;
+import com.artofsolving.jodconverter.openoffice.converter.OpenOfficeDocumentConverter;*/
 
 public class JOD4DocToPDF{
 
-	private File inputFile;// 需要转换的文件 
+	private File inputFile;// 需要转换的文件
     private File outputFile;// 输出的文件
     
 	public JOD4DocToPDF(){
@@ -63,7 +63,7 @@ public class JOD4DocToPDF{
 
         // connect to an OpenOffice.org instance running on port 8100
     	//Process pro = Runtime.getRuntime().e
-        OpenOfficeConnection connection = new SocketOpenOfficeConnection(8100);
+        /*OpenOfficeConnection connection = new SocketOpenOfficeConnection(8100);
         try {
             connection.connect();
             // convert
@@ -83,7 +83,7 @@ public class JOD4DocToPDF{
         if (connection != null) {
             connection.disconnect();
             connection = null;
-        }
+        }*/
         
         long l = (start.getTime() - new Date().getTime());
         long day = l / (24 * 60 * 60 * 1000);

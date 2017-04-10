@@ -14,17 +14,17 @@ import org.apache.poi.hssf.usermodel.HSSFCell;
 import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
-import org.apache.poi.xssf.usermodel.XSSFCell;
+/*import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;*/
 
 public class ExcelUtil {
 
 	public static Log log = LogFactory.getLog(ExcelUtil.class);
-	
+
 	public static List<Map<String,String>> ExcelToList(String filePath) throws Exception{
-		
+
 		List<Map<String,String>> mapList = new ArrayList<Map<String,String>>();
 		String filetype = filePath.substring(filePath.lastIndexOf(".") + 1);
 		FileInputStream fi = null;
@@ -42,21 +42,21 @@ public class ExcelUtil {
 				HSSFWorkbook wookbook = new HSSFWorkbook(fi);
 				HSSFSheet sheet = wookbook.getSheet("Sheet1");
 				int rows = sheet.getPhysicalNumberOfRows();
-				
+
 				//获取标题行
 				HSSFRow title = sheet.getRow(0);
 				log.info(title.getLastCellNum());
 				int index = title.getFirstCellNum();
 				int rowcount = title.getLastCellNum();
 				for (int i = 1; i < rows; i++){
-					
+
 					HSSFRow row = sheet.getRow(i);
 					if(isBlankRow(row, index, rowcount))
 						continue;
 					if (row != null){
 						Map<String,String> map = new TreeMap<String,String>();
 						int cells = title.getPhysicalNumberOfCells();
-						
+
 						for (int j = 0; j < cells; j++){
 							String value = "";
 							HSSFCell cell = row.getCell(j);
@@ -79,7 +79,7 @@ public class ExcelUtil {
 							//String key = title.getCell(j).getStringCellValue().trim();
 							map.put(title.getCell(j).getStringCellValue().trim(), value);
 						}
-						
+
 						mapList.add(map);
 					}
 				}
@@ -94,7 +94,7 @@ public class ExcelUtil {
 			}
 		}else if("xlsx".equals(filetype.toLowerCase())){
 			//xlsx文件
-			try {
+			/*try {
 				XSSFWorkbook wookbook = new XSSFWorkbook(new FileInputStream(filePath));
 				XSSFSheet sheet = wookbook.getSheet("Sheet1");
 				int rows = sheet.getPhysicalNumberOfRows();
@@ -103,14 +103,14 @@ public class ExcelUtil {
 				int index = title.getFirstCellNum();
 				int rowcount = title.getLastCellNum();
 				for (int i = 1; i < rows; i++){
-					
+
 					XSSFRow row = sheet.getRow(i);
 					if(isBlankRow(row, index, rowcount))
 						continue;
 					if (row != null){
 						Map<String,String> map = new TreeMap<String,String>();
 						int cells = title.getPhysicalNumberOfCells();
-						
+
 						for (int j = 0; j < cells; j++){
 							String value = "";
 							XSSFCell cell = row.getCell(j);
@@ -132,7 +132,7 @@ public class ExcelUtil {
 							}
 							map.put(title.getCell(j).getStringCellValue().trim(), value);
 						}
-						
+
 						mapList.add(map);
 					}
 				}
@@ -142,35 +142,35 @@ public class ExcelUtil {
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-			}
+			}*/
 		}
 		if(fi != null)
 			fi.close();
-		
+
 		return mapList;
 	}
-	
+
 	public static boolean isBlankRow(HSSFRow row, int index, int rowCount){
 		if(row == null)
 			return true;
 		for(int i=index; i < rowCount; i++){
-			if(row.getCell(i) != null && 
+			if(row.getCell(i) != null &&
 					!"".equals(row.getCell(i).getStringCellValue().trim())){
 				return false;
 			}
 		}
 		return true;
 	}
-	
-	public static boolean isBlankRow(XSSFRow row, int index, int rowCount){
+
+	/*public static boolean isBlankRow(XSSFRow row, int index, int rowCount){
 		if(row == null)
 			return true;
 		for(int i=index; i < rowCount; i++){
-			if(row.getCell(i) != null || 
+			if(row.getCell(i) != null ||
 					!"".equals(row.getCell(i).getStringCellValue().trim())){
 				return false;
 			}
 		}
 		return true;
-	}
+	}*/
 }

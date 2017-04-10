@@ -378,6 +378,10 @@ header {
 	background: #fff;
 }
 
+header .container{
+	margin-top: 80px;;
+}
+
 header .logo {
 	padding-bottom: 2px;
 }
