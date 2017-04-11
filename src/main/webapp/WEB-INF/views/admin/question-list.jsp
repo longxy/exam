@@ -246,7 +246,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 												<td>${items.questionTypeName }</td><td>${items.fieldName }</td><td>${items.pointName }</td>
 												<%-- <td>${items.keyword }</td> --%>
 												<td style="width:50px;">
-													<a class="change-property">修改</a>
+													<%--<a class="change-property">修改</a>--%>
 													<a class="del-property" onclick="delProperty(${items.id})">删除</a>
 												</td>
 											</tr>

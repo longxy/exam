@@ -57,8 +57,8 @@ var add_field = {
 		if (f_name == "") {
 			$(".form-name .form-message").text("题库名不能为空");
 			return false;
-		} else if (f_name.length > 40 || f_name.length < 5) {
-			$(".form-name .form-message").text("请保持在5-40个字符以内");
+		} else if (f_name.length > 40 || f_name.length < 2) {
+			$(".form-name .form-message").text("请保持在2-40个字符以内");
 			return false;
 		} 
 		return true;
@@ -69,8 +69,8 @@ var add_field = {
 		if (memo == "") {
 			$(".form-memo .form-message").text("描述不能为空");
 			return false;
-		} else if (memo.length > 40 || memo.length < 5) {
-			$(".form-memo .form-message").text("请保持在5-40个字符以内");
+		} else if (memo.length > 40 || memo.length < 2) {
+			$(".form-memo .form-message").text("请保持在2-40个字符以内");
 			return false;
 		} 
 		return true;
