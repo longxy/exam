@@ -14,6 +14,10 @@ import org.apache.poi.hssf.usermodel.HSSFCell;
 import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.xssf.usermodel.XSSFCell;
+import org.apache.poi.xssf.usermodel.XSSFRow;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 /*import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
@@ -94,7 +98,7 @@ public class ExcelUtil {
 			}
 		}else if("xlsx".equals(filetype.toLowerCase())){
 			//xlsx文件
-			/*try {
+			try {
 				XSSFWorkbook wookbook = new XSSFWorkbook(new FileInputStream(filePath));
 				XSSFSheet sheet = wookbook.getSheet("Sheet1");
 				int rows = sheet.getPhysicalNumberOfRows();
@@ -142,7 +146,7 @@ public class ExcelUtil {
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-			}*/
+			}
 		}
 		if(fi != null)
 			fi.close();
@@ -162,7 +166,7 @@ public class ExcelUtil {
 		return true;
 	}
 
-	/*public static boolean isBlankRow(XSSFRow row, int index, int rowCount){
+	public static boolean isBlankRow(XSSFRow row, int index, int rowCount){
 		if(row == null)
 			return true;
 		for(int i=index; i < rowCount; i++){
@@ -172,5 +176,5 @@ public class ExcelUtil {
 			}
 		}
 		return true;
-	}*/
+	}
 }
