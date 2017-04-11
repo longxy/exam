@@ -33,7 +33,7 @@ CREATE TABLE `et_comment` (
   KEY `fk_u_id` (`user_id`),
   CONSTRAINT `fk_q_id` FOREIGN KEY (`question_id`) REFERENCES `et_question` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_u_id` FOREIGN KEY (`user_id`) REFERENCES `et_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='评论';
 
 -- ----------------------------
 -- Records of et_comment
@@ -80,7 +80,7 @@ CREATE TABLE `et_field` (
   `memo` varchar(100) DEFAULT NULL,
   `state` decimal(1,0) NOT NULL DEFAULT '1' COMMENT '1 正常 0 废弃',
   PRIMARY KEY (`field_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='题库';
 
 -- ----------------------------
 -- Records of et_field
@@ -118,7 +118,7 @@ CREATE TABLE `et_knowledge_point` (
   PRIMARY KEY (`point_id`),
   KEY `fk_knowledge_field` (`field_id`),
   CONSTRAINT `et_knowledge_point_ibfk_1` FOREIGN KEY (`field_id`) REFERENCES `et_field` (`field_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COMMENT='知识点';
 
 -- ----------------------------
 -- Records of et_knowledge_point
@@ -354,7 +354,7 @@ CREATE TABLE `et_question_2_point` (
   KEY `fk_point_111` (`point_id`),
   CONSTRAINT `et_question_2_point_ibfk_1` FOREIGN KEY (`point_id`) REFERENCES `et_knowledge_point` (`point_id`),
   CONSTRAINT `et_question_2_point_ibfk_2` FOREIGN KEY (`question_id`) REFERENCES `et_question` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=129 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=129 DEFAULT CHARSET=utf8 COMMENT='试题-知识点';
 
 -- ----------------------------
 -- Records of et_question_2_point
