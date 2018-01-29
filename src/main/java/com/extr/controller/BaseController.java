@@ -40,7 +40,7 @@ public class BaseController {
 	private QuestionService questionService;
 
 	/**
-	 * 网站首页
+	 * 网站首页（test测试上传）
 	 * 
 	 * @param model
 	 * @param request
